@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期末PJ</title>
+
+    <style>
+        #smile {
+            display: block;
+            margin: auto;
+            width: 30%;
+        }
+
+        #text {
+            text-align: center;
+            font-size: 500%;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="smile" src="smile.jpg" alt="A smiling face here" onmouseover="touch()" onmouseout="leave()">
+    <p id="text">
+    </p>
+</body>
+
+<script>
+    var touchMe = ["摸我", "你怎么不理我", "喂，你不喜欢我了吗", "我好寂寞啊", "别放弃我"];
+    var dontTouchMe = ["滚！", "走开！", "把手拿开！", "我讨厌你", "别碰我！"];
+
+
+    var ix = Math.floor(Math.random() * 10);
+
+    function touch() {
+        document.getElementById("text").innerHTML = dontTouchMe[ix % dontTouchMe.length];
+        ix = Math.floor(Math.random() * 10);
+    }
+
+    function leave() {
+        document.getElementById("text").innerHTML = touchMe[ix % touchMe.length];
+        ix = Math.floor(Math.random() * 10);
+    }
+
+</script>
+
+</html>
