@@ -1,153 +1,736 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>简历最亮眼项目</title>
-
-    <style>
-        #smile {
-            display: block;
-            margin: auto;
-            width: 30%;
-        }
-
-        #text {
-            text-align: center;
-            font-size: 500%;
-        }
-    </style>
-</head>
-
-<body>
-    <img id="smile" src="smile.jpg" alt="A smiling face here" onmouseover="touch()" onmouseout="leave()">
-    <p id="text">
-    </p>
-</body>
-
-<script>
-    var touchMe = ["摸我", "你怎么不理我", "喂，你不喜欢我了吗", "我好寂寞啊", "别放弃我"];
-    var dontTouchMe = ["滚！", "走开！", "把手拿开！", "我讨厌你", "别碰我！"];
-
-
-    var ix = Math.floor(Math.random() * 10);
-
-    function touch() {
-        document.getElementById("text").innerHTML = dontTouchMe[ix % dontTouchMe.length];
-        ix = Math.floor(Math.random() * 10);
-    }
-
-    function leave() {
-        document.getElementById("text").innerHTML = touchMe[ix % touchMe.length];
-        ix = Math.floor(Math.random() * 10);
-    }
-
-</script>
-
-</html> -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wilson Yang - Home</title>
+    <title>杨淳瑜 - 个人主页</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: MesloLGM Nerd Font, Arial, Helvetica, sans-serif;
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f97316;
+            --dark: #111827;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 960px;
-            margin: auto;
-            padding: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        header {
-            background: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            overflow: hidden;
         }
 
-        header h1 {
-            margin: 0;
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/api/placeholder/1100/600') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
         }
 
-        nav ul {
-            padding: 0;
-            list-style: none;
-            text-align: center;
-            background-color: #444;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
+        .hero-content {
+            position: relative;
+            z-index: 1;
             color: white;
-            padding: 5px 20px;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .typing-text {
+            min-height: 2em;
+            position: relative;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark);
             display: inline-block;
         }
 
-        nav ul li a:hover {
-            background-color: #555;
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 70%;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 0.5rem auto 0;
         }
 
-        .content {
-            padding: 20px;
-            background-color: #fff;
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
 
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: #f8fafc;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li::before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            background-color: #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .project-description {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-tag {
+            padding: 0.25rem 0.75rem;
+            background-color: #e0f2fe;
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--dark);
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
         footer {
-            background: #333;
-            color: #fff;
+            background-color: #0f172a;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 2rem 0;
             text-align: center;
-            padding: 10px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 400px;
+                margin: 0 auto 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <h1>Wilson Yang</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <section id="about" class="content">
-            <h2>About Me</h2>
-            <p>Hello! I'm Wilson Yang, a professional with a passion for web development. Welcome to my personal webpage where I showcase my projects and share my thoughts.</p>
-        </section>
-        
-        <section id="projects" class="content">
-            <h2>Projects</h2>
-            <p>Here are some of my recent projects:</p>
-            <ul>
-                <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUkcmljayBhc3RsZXkgbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXAg">Project One</a> - A brief description of this project.</li>
-                <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUkcmljayBhc3RsZXkgbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXAg">Project Two</a> - A brief description of this project.</li>
-                <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUkcmljayBhc3RsZXkgbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXAg">Project Three</a> - A brief description of this project.</li>
-            </ul>
-        </section>
-        
-        <section id="contact" class="content">
-            <h2>Contact</h2>
-            <p>If you'd like to get in touch with me, feel free to drop me a line at <a href="mailto:wilsonyang315@gmail.com">wilsonyang315@gmail.com</a> or follow me on social media.</p>
-        </section>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>杨淳瑜</h1>
+            <p class="typing-text">我是一名 AI 与深度学习爱好者</p>
+            <p>复旦大学计算机科学与技术学院本科生，专注于人工智能、自然语言处理和深度学习领域的研究与实践。</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">查看我的项目</a>
+                <a href="#contact" class="btn btn-outline">联系我</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于我</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text animate">
+                    <h3>复旦大学 | 人工智能专业</h3>
+                    <p>我是复旦大学计算机科学与技术学院的在读本科生，专注于人工智能、自然语言处理和深度学习领域。通过系统的学习和实践，我积累了扎实的技术基础和丰富的项目经验。</p>
+                    <p>我对大语言模型优化、卫星信号处理和数据挖掘等领域有浓厚的兴趣。在学术上，我保持着优异的成绩（GPA 3.72/4.0），曾获得校一等奖学金和二等奖学金。</p>
+                    <p>我热衷于将理论知识转化为实际应用，曾参与多个研究项目，并在科技创新比赛中取得佳绩。</p>
+                </div>
+                <div class="about-image animate">
+                    <img src="/api/placeholder/500/400" alt="杨淳瑜个人照片">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>专业技能</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card animate">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="skill-title">编程语言</h3>
+                    <ul class="skill-list">
+                        <li>Python (熟练掌握)</li>
+                        <li>Shell 脚本</li>
+                        <li>C++</li>
+                        <li>Java</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card animate">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="skill-title">深度学习</h3>
+                    <ul class="skill-list">
+                        <li>PyTorch (熟练掌握)</li>
+                        <li>自然语言处理</li>
+                        <li>计算机视觉</li>
+                        <li>大语言模型</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card animate">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="skill-title">数据科学</h3>
+                    <ul class="skill-list">
+                        <li>数据挖掘</li>
+                        <li>机器学习算法</li>
+                        <li>数据分析</li>
+                        <li>信号处理</li>
+                    </ul>
+                </div>
+
+                <div class="skill-card animate">
+                    <div class="skill-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="skill-title">其他能力</h3>
+                    <ul class="skill-list">
+                        <li>英语能力 (良好)</li>
+                        <li>团队协作</li>
+                        <li>沟通能力</li>
+                        <li>Linux 系统</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>项目经历</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card animate">
+                    <div class="project-image">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">提升小规模语言模型的数学推理能力</h3>
+                        <p class="project-description">
+                            通过LoRA微调和思维链改进，显著提升了Qwen-0.5B模型在GSM8K和MATH数据集上的准确率。基于聚类思想创建定制提示，使GSM8K测试准确率提高到39.74%。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">LLM</span>
+                            <span class="project-tag">LoRA</span>
+                            <span class="project-tag">思维链</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate">
+                    <div class="project-image">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">高效卫星干扰检测算法研究</h3>
+                        <p class="project-description">提出双向单头的注意力机制替代多头注意力机制，减少了50%推理时间。通过离散小波化对损失函数正则化，显著提高了模型性能。</p>
+                        <div class="project-tags">
+                            <span class="project-tag">信号处理</span>
+                            <span class="project-tag">注意力机制</span>
+                            <span class="project-tag">Autoencoder</span>
+                            <span class="project-tag">小波变换</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card animate">
+                    <div class="project-image">
+                        <i class="fas fa-spider"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">论文数据集链接自动化挖掘Agent</h3>
+                        <p class="project-description">设计URL提取流程，通过PDF分块提取、LLM上下文语义分析直接识别数据集链接。针对Github链接递归查找README文档。
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">爬虫</span>
+                            <span class="project-tag">LLM</span>
+                            <span class="project-tag">数据挖掘</span>
+                            <span class="project-tag">Beautiful Soup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>联系我</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info animate">
+                    <h3>与我取得联系</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p>wilsonyang315@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p>+86 13636561595</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <p>上海市</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Monthlyaway" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-weixin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form animate">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="你的名字" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="你的邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="主题">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" placeholder="你的留言" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">发送消息</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Wilson Yang. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 杨淳瑜. 保留所有权利.</p>
+        </div>
     </footer>
+
+    <script>
+        // Typing effect
+        const typeText = () => {
+            const text = "我是一名 AI 与深度学习爱好者";
+            const typingElement = document.querySelector('.typing-text');
+            let index = 0;
+            let currentText = '';
+
+            function type() {
+                if (index < text.length) {
+                    currentText += text.charAt(index);
+                    typingElement.textContent = currentText;
+                    index++;
+                    setTimeout(type, 100);
+                }
+            }
+
+            type();
+        };
+
+        // Scroll animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(element);
+            });
+        };
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission (placeholder)
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('感谢您的留言！在实际部署时，这里会连接到真实的表单处理服务。');
+            this.reset();
+        });
+
+        // Initialize
+        window.addEventListener('load', () => {
+            typeText();
+            animateOnScroll();
+        });
+    </script>
 </body>
+
 </html>
