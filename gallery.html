@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery - Epic Realism</title>
+    <!-- Link to gallery CSS (will be created) -->
+    <link rel="stylesheet" href="css/gallery.css">
+    <!-- Link to Lightbox2 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9noQE0WIecihMZDUYRhlMIFQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Basic styles to center content initially */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .gallery-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery-container">
+        <h1>Image Gallery: Epic Realism</h1>
+        <div class="image-grid">
+            <!-- Image thumbnails will go here -->
+            <p>Loading images...</p>
+        </div>
+    </div>
+
+    <!-- Link to jQuery (required by Lightbox2) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Link to Lightbox2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" integrity="sha512-UJvoRxTmsMmbAWxBUtjZazMjNepqeAZanqnPJKknHWtDskZTsiqrWWDRBJCS8EWBB05ijpFtzDLSWbssKJZarA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Link to gallery JS -->
+    <script src="js/gallery.js"></script>
+</body>
+</html>
